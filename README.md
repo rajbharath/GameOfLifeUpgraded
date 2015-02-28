@@ -21,29 +21,29 @@ Plan
 > ###LifeController
 
 > ###Grid
-#### public interactions
- - seed(positionstolive)
- - forwardToNextGeneration()
+    #### public interactions
+     - seed(positionstolive)
+     - forwardToNextGeneration()
 
-#### private interactions
- - getNeighbours(cell)
- - forwardAllCellsToNextGeneration()
- - getNextGenerationLifeStatus(cell)
+    #### private interactions
+     - getNeighbours(cell)
+     - forwardAllCellsToNextGeneration()
+     - getNextGenerationLifeStatus(cell)
 
 > ###AIEngine
-#### public interactions
- - computeNextGeneration(board)
+    #### public interactions
+     - computeNextGeneration(board)
 
-#### private interactions
-##### *for living cell*
- - isUnderPopulated(cell)
- - isOverCrowded(cell)
- - isAliveForNextGeneration(cell)
-##### *for empty cell*
- - isReadyForReproduction()
+    #### private interactions
+    ##### *for living cell*
+     - isUnderPopulated(cell)
+     - isOverCrowded(cell)
+     - isAliveForNextGeneration(cell)
+    ##### *for empty cell*
+     - isReadyForReproduction()
 
 > ###Cell
-#### public interactions
- - hasLife()
- - setLifeForNextGeneration()
- - forwardToNextGeneration()
+    #### public interactions
+     - hasLife()
+     - setLifeForNextGeneration()
+     - forwardToNextGeneration()
