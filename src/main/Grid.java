@@ -29,12 +29,20 @@ public class Grid {
         }
     }
 
+    private void forwardAllToNextGeneration() {
+        for (int i = 0; i < maxRow; i++) {
+            for (int j = 0; j < maxColumn; j++) {
+                cells[i][j].forwardToNextGeneration();
+            }
+        }
+    }
+
     private void computeNextGenerationLifeAt(int row, int column) {
         int neighbourCount = getLiveNeighboursCountAt(row, column);
-        System.out.println("neighbour count" + neighbourCount);
         boolean nextGenerationLifeStatus = getNextGenerationLife(cells[row][column].hasLife(), neighbourCount);
         cells[row][column].setNextGenerationLife(nextGenerationLifeStatus);
     }
+
 
     private int getLiveNeighboursCountAt(int row, int column) {
         int minRowIndex = findMinRowIndex(row);
@@ -44,7 +52,7 @@ public class Grid {
         int liveNeighboursCount = 0;
         for (int i = minRowIndex; i <= maxRowIndex; i++) {
             for (int j = minColumnIndex; j <= maxColumnIndex; j++) {
-                if (!(i==row && j==column) && cells[i][j].hasLife())
+                if (!(i == row && j == column) && cells[i][j].hasLife())
                     liveNeighboursCount++;
             }
         }
@@ -52,20 +60,11 @@ public class Grid {
         return liveNeighboursCount;
     }
 
-    private int findMaxColumnIndex(int column) {
-        if (column >= 0 && column < maxColumn - 1) return column + 1;
-        return column;
-    }
-
-    private int findMinColumnIndex(int column) {
-        if (column <= 0) return 0;
-        else if (column > 0 && column <= maxColumn - 1) return column - 1;
-        else return column - 1;
-    }
-
-    private int findMaxRowIndex(int row) {
-        if (row >= 0 && row < maxRow - 1) return row + 1;
-        return row;
+    private boolean getNextGenerationLife(boolean life, int neighbourCount) {
+        if (life) {
+            return getGenerationForLiveCell(neighbourCount);
+        }
+        return getNextGenerationLifeStatusForDeadCell(neighbourCount);
     }
 
     private int findMinRowIndex(int row) {
@@ -74,11 +73,20 @@ public class Grid {
         else return row - 1;
     }
 
-    private boolean getNextGenerationLife(boolean life, int neighbourCount) {
-        if (life) {
-            return getGenerationForLiveCell(neighbourCount);
-        }
-        return getNextGenerationLifeStatusForDeadCell(neighbourCount);
+    private int findMaxRowIndex(int row) {
+        if (row >= 0 && row < maxRow - 1) return row + 1;
+        return row;
+    }
+
+    private int findMinColumnIndex(int column) {
+        if (column <= 0) return 0;
+        else if (column > 0 && column <= maxColumn - 1) return column - 1;
+        else return column - 1;
+    }
+
+    private int findMaxColumnIndex(int column) {
+        if (column >= 0 && column < maxColumn - 1) return column + 1;
+        return column;
     }
 
     private boolean getGenerationForLiveCell(int neighbourCount) {
@@ -91,11 +99,4 @@ public class Grid {
         return false;
     }
 
-    private void forwardAllToNextGeneration() {
-        for (int i = 0; i < maxRow; i++) {
-            for (int j = 0; j < maxColumn; j++) {
-                cells[i][j].forwardToNextGeneration();
-            }
-        }
-    }
 }

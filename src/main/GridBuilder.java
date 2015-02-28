@@ -15,9 +15,9 @@ public class GridBuilder {
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < column; j++) {
                 if (seed[i][j] == 1)
-                    cells[i][j] = new Cell(i, j, true);
+                    cells[i][j] = new Cell(true);
                 else
-                    cells[i][j] = new Cell(i, j, false);
+                    cells[i][j] = new Cell(false);
             }
         }
         return cells;
