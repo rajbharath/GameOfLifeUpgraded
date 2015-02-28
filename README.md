@@ -18,32 +18,32 @@ The Rules
 Plan
 ----
 
-> #3LifeController
+> ###LifeController
 
-> #3Grid
-#4 public interactions
+> ###Grid
+#### public interactions
  - seed(positionstolive)
  - forwardToNextGeneration()
 
-#4 private interactions
+#### private interactions
  - getNeighbours(cell)
  - forwardAllCellsToNextGeneration()
  - getNextGenerationLifeStatus(cell)
 
-> #3AIEngine
-#4 public interactions
+> ###AIEngine
+#### public interactions
  - computeNextGeneration(board)
 
-#4 private interactions
-#5 *for living cell*
+#### private interactions
+##### *for living cell*
  - isUnderPopulated(cell)
  - isOverCrowded(cell)
  - isAliveForNextGeneration(cell)
-#5 *for empty cell*
+##### *for empty cell*
  - isReadyForReproduction()
 
-> #3Cell
-#4 public interactions
+> ###Cell
+#### public interactions
  - hasLife()
  - setLifeForNextGeneration()
  - forwardToNextGeneration()
