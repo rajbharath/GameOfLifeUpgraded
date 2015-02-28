@@ -12,10 +12,6 @@ public class Grid {
         this.maxColumn = cells[0].length;
     }
 
-    public boolean hasLifeAt(int row, int column) {
-        return cells[row][column].hasLife();
-    }
-
     public void forwardToNextGeneration() {
         computeNextGenerationLives();
         forwardAllToNextGeneration();
@@ -97,6 +93,10 @@ public class Grid {
     private boolean getNextGenerationLifeStatusForDeadCell(int neighbourCount) {
         if (neighbourCount == 3) return true;
         return false;
+    }
+
+    public boolean hasLifeAt(int row, int column) {
+        return cells[row][column].hasLife();
     }
 
 }
