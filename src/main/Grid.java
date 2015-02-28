@@ -39,7 +39,6 @@ public class Grid {
         cells[row][column].setNextGenerationLife(nextGenerationLifeStatus);
     }
 
-
     private int getLiveNeighboursCountAt(int row, int column) {
         int minRowIndex = findMinRowIndex(row);
         int maxRowIndex = findMaxRowIndex(row);
@@ -95,6 +94,9 @@ public class Grid {
         return false;
     }
 
+    /**
+     * This method got introduced for testing purpose only.
+     */
     public boolean hasLifeAt(int row, int column) {
         return cells[row][column].hasLife();
     }
