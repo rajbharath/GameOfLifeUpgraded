@@ -9,10 +9,9 @@ public class GridBuilderTest {
     public void shouldBuildGridForGivenSeed() {
         int[][] seed = {{1, 0}, {0, 1}};
         Grid grid = new GridBuilder().build(seed);
-        Assert.assertTrue(grid.getCell(0, 0).hasLife());
-        Assert.assertFalse(grid.getCell(0, 1).hasLife());
-        Assert.assertFalse(grid.getCell(1, 0).hasLife());
-        Assert.assertTrue(grid.getCell(1, 1).hasLife());
+        Assert.assertTrue(grid.hasLifeAt(0, 0));
+        Assert.assertFalse(grid.hasLifeAt(0, 1));
+        Assert.assertFalse(grid.hasLifeAt(1, 0));
+        Assert.assertTrue(grid.hasLifeAt(1, 1));
     }
-
 }
