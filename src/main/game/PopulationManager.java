@@ -1,4 +1,4 @@
-package main;
+package main.game;
 
 public class PopulationManager {
     public static boolean getNextGenerationLife(boolean life, int neighbourCount) {

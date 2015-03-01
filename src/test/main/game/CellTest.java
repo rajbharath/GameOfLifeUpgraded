@@ -1,9 +1,8 @@
-package main;
+package main.game;
 
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-import org.mockito.internal.matchers.Null;
 
 public class CellTest {
 

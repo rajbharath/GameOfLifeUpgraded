@@ -1,4 +1,4 @@
-package main;
+package main.game;
 
 public class Cell {
 
@@ -30,6 +30,6 @@ public class Cell {
 
     @Override
     public String toString() {
-        return Boolean.toString(isAlive);
+        return isAlive ? "1 " : "0 ";
     }
 }
