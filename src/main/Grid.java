@@ -35,7 +35,7 @@ public class Grid {
 
     private void computeNextGenerationLifeAt(int row, int column) {
         int neighbourCount = getLiveNeighboursCountAt(row, column);
-        boolean nextGenerationLifeStatus = getNextGenerationLife(cells[row][column].hasLife(), neighbourCount);
+        boolean nextGenerationLifeStatus = PopulationManager.getNextGenerationLife(cells[row][column].hasLife(), neighbourCount);
         cells[row][column].setNextGenerationLife(nextGenerationLifeStatus);
     }
 
@@ -53,13 +53,6 @@ public class Grid {
         }
 
         return liveNeighboursCount;
-    }
-
-    private boolean getNextGenerationLife(boolean life, int neighbourCount) {
-        if (life) {
-            return getGenerationForLiveCell(neighbourCount);
-        }
-        return getNextGenerationLifeStatusForDeadCell(neighbourCount);
     }
 
     private int findMinRowIndex(int row) {
@@ -82,16 +75,6 @@ public class Grid {
     private int findMaxColumnIndex(int column) {
         if (column >= 0 && column < maxColumn - 1) return column + 1;
         return column;
-    }
-
-    private boolean getGenerationForLiveCell(int neighbourCount) {
-        if (neighbourCount == 2 || neighbourCount == 3) return true;
-        return false;
-    }
-
-    private boolean getNextGenerationLifeStatusForDeadCell(int neighbourCount) {
-        if (neighbourCount == 3) return true;
-        return false;
     }
 
     /**
