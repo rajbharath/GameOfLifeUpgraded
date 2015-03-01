@@ -13,6 +13,7 @@ public class Cell {
     public boolean hasLife() {
         return isAlive;
     }
+
     public void setNextGenerationLife(boolean nextGenerationLife) {
         this.nextGenerationLife = nextGenerationLife;
         isNextGenerationLifeComputed = true;
@@ -25,5 +26,10 @@ public class Cell {
 
         isAlive = nextGenerationLife;
         isNextGenerationLifeComputed = false;
+    }
+
+    @Override
+    public String toString() {
+        return Boolean.toString(isAlive);
     }
 }

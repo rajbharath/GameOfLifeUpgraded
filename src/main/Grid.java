@@ -2,6 +2,7 @@ package main;
 
 public class Grid {
 
+    private static final String NEWLINE = "\n";
     private Cell[][] cells;
     private int maxRow;
     private int maxColumn;
@@ -75,6 +76,18 @@ public class Grid {
     private int findMaxColumnIndex(int column) {
         if (column >= 0 && column < maxColumn - 1) return column + 1;
         return column;
+    }
+
+    @Override
+    public String toString() {
+        String displayString = "";
+        for (int i = 0; i < maxRow; i++) {
+            for (int j = 0; j < maxColumn; j++) {
+                displayString += cells[i][j].toString();
+            }
+            displayString += NEWLINE;
+        }
+        return displayString;
     }
 
     /**

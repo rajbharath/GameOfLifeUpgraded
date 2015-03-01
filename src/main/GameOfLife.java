@@ -15,4 +15,9 @@ public class GameOfLife {
             grid.forwardToNextGeneration();
         }
     }
+
+    public String display(){
+        return grid.toString();
+    }
+
 }
