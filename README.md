@@ -15,35 +15,28 @@ The Rules
 > For a space that is *'empty'* or *'unpopulated'*
    +  Each cell with three neighbors becomes populated. 
 
-Plan
-----
 
-> ###LifeController
+Iteration 1
+=============
+review comments
+===============
 
-> ###Grid
-    #### public interactions
-     - seed(positionstolive)
-     - forwardToNextGeneration()
+ - native array should be avoided
+ - encapsulate how input is given
+ - exception should not expose internals of the system. it should be user perspective
+ - read me - should expose how to run or use the code but should not describe the system itself
+ - Make constants and messages in a separate class for more readability
 
-    #### private interactions
-     - getNeighbours(cell)
-     - forwardAllCellsToNextGeneration()
-     - getNextGenerationLifeStatus(cell)
+Extension
+----------
+ - cell has age.
+ - default age is 3
+ - whenever cell is suffers from under population or over population age will get reduced by 1
+ - if a cell continously lives for 3 generation with same age. it age increases by 1
 
-> ###AIEngine
-    #### public interactions
-     - computeNextGeneration(board)
-
-    #### private interactions
-    ##### *for living cell*
-     - isUnderPopulated(cell)
-     - isOverCrowded(cell)
-     - isAliveForNextGeneration(cell)
-    ##### *for empty cell*
-     - isReadyForReproduction()
-
-> ###Cell
-    #### public interactions
-     - hasLife()
-     - setLifeForNextGeneration()
-     - forwardToNextGeneration()
+Steps to proceed:
+-----------------
+ - refactor the existing code
+ - make interface for the rules
+ - extract messages constants
+ - do the extension
