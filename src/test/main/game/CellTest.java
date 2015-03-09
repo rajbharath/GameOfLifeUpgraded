@@ -13,7 +13,7 @@ public class CellTest {
     public void shouldThrowException() {
         expectedException.expect(IllegalStateException.class);
         expectedException.expectMessage("Method invoked with out computing the status of next generation life");
-        Cell cell = new Cell(true);
+        Cell cell = new Cell(0, 0, true);
         cell.forwardToNextGeneration();
     }
 }

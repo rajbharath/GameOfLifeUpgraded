@@ -3,25 +3,20 @@ package main.game;
 public class GridBuilder {
 
     public Grid build(int[][] seed) {
-        Cell[][] cells = createCells(seed);
-        return new Grid(cells);
-    }
-
-    private Cell[][] createCells(int[][] seed) {
-        //TODO need to handle null seed or row in seed is null
-        int row = seed.length;
-        int column = seed[0].length;
-        Cell[][] cells = new Cell[row][column];
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < column; j++) {
-                if (seed[i][j] == 1)
-                    cells[i][j] = new Cell(true);
+        int maxRow = seed.length;
+        int maxColumn = seed[0].length;
+        Grid grid = new Grid();
+        for (int currentRow = 0; currentRow < maxRow; currentRow++) {
+            Row row = new Row();
+            for (int currentColumn = 0; currentColumn < maxColumn; currentColumn++) {
+                if (seed[currentRow][currentColumn] == 1)
+                    row.add(new Cell(currentRow, currentColumn, true));
                 else
-                    cells[i][j] = new Cell(false);
+                    row.add(new Cell(currentRow, currentColumn, false));
             }
+            grid.add(row);
         }
-        return cells;
+        return grid;
     }
-
 
 }
