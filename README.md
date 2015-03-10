@@ -26,6 +26,7 @@ review comments
  - exception should not expose internals of the system. it should be user perspective
  - read me - should expose how to run or use the code but should not describe the system itself
  - Make constants and messages in a separate class for more readability
+ - Encapsulate the rules
 
 Extension
 ----------

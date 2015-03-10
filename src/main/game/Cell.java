@@ -7,6 +7,7 @@ public class Cell {
     private boolean isAlive;
     private boolean nextGenerationLife;
     private boolean isNextGenerationLifeComputed;
+    private int liveNeighboursCount;
 
     public Cell(int row, int column, boolean isAlive) {
         this.row = row;
@@ -30,6 +31,14 @@ public class Cell {
 
         isAlive = nextGenerationLife;
         isNextGenerationLifeComputed = false;
+    }
+
+    public int getLiveNeighboursCount() {
+        return liveNeighboursCount;
+    }
+
+    public void setLiveNeighboursCount(int liveNeighboursCount) {
+        this.liveNeighboursCount = liveNeighboursCount;
     }
 
     @Override
