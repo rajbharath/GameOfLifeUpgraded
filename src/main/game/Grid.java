@@ -30,6 +30,7 @@ public class Grid extends ArrayList<Row> {
 
     private void computeNextGenerationLife(Cell cell) {
         int neighbourCount = getLiveNeighboursCount(cell);
+        System.out.println(neighbourCount+"");
         boolean nextGenerationLifeStatus = PopulationManager.getNextGenerationLife(cell.hasLife(), neighbourCount);
         cell.setNextGenerationLife(nextGenerationLifeStatus);
     }
@@ -37,7 +38,6 @@ public class Grid extends ArrayList<Row> {
     private int getLiveNeighboursCount(Cell cell) {
         int row = cell.getRow();
         int column = cell.getColumn();
-        System.out.println("row:" + row + " column:" + column);
         int minRowIndex = findMinRowIndex(row);
         int maxRowIndex = findMaxRowIndex(row);
         int minColumnIndex = findMinColumnIndex(column);
@@ -49,7 +49,7 @@ public class Grid extends ArrayList<Row> {
                     liveNeighboursCount++;
             }
         }
-        return 0;
+        return liveNeighboursCount;
     }
 
     private void forwardAllToNextGeneration() {
